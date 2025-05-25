@@ -1,0 +1,86 @@
+{
+  
+    "editProfile": "تعديل الملف الشخصي",
+    "favourites": "المفضلة",
+    "settings": "الإعدادات",
+    "personalInfo": "المعلومات الشخصية",
+    "support": "الدعم",
+    "policy": "الشروط والخصوصية",
+    "contactUs": "اتصل بنا",
+    "logout":"الخروج",
+    "cancel": "إلغاء",
+    "seeAll": "عرض الكل",
+
+    "serviceList": "قائمة الخدمات",
+  "salons": "الصالونات",
+  "nearBySalon": "الصالونات القريبة",
+  "sponserd": "مدعوم",
+  "offers": "العروض",
+  "newSalon": "صالونات جديدة",
+  "homeService": "خدمة منزلية",
+
+  "emailAddress": "عنوان البريد الإلكتروني",
+  "password": "كلمة المرور",
+
+  
+  "placeholderEmail": "email@gmail.com",
+  "placeholderPassword": "كلمة المرور",
+  "forgetPassword": "نسيت كلمة المرور",
+  "orContinueWith": "أو المتابعة باستخدام",
+  "notHaveAccount": "ليس لديك حساب؟",
+  "haveAccount": "هل لديك حساب؟",
+  "fullName": "الاسم الكامل",
+  "name": "الاسم",
+
+  "signUp": "التسجيل",
+  "signIn": "تسجيل الدخول",
+  "helloAgain": "مرحبًا مجددًا!",
+  "welcomeBack": "أهلاً وسهلاً بعودتك، لقد افتقدناك!",
+  "languageSelection": "اختيار اللغة",
+
+  "validEmailError": "الرجاء إدخال عنوان بريد إلكتروني صالح",
+
+
+  "createAccount": "أنشئ حسابًا وابدأ في التصفح",
+  "email": "البريد الإلكتروني",
+  "signUpp": "التسجيل",
+  "signINN": "تسجيل الدخول",
+  "forgot": "نسيت كلمة المرور",
+  "send": "إرسال",
+
+  "firstNameLastName": "الاسم الأول واسم العائلة",
+  "phoneNumber": "رقم الهاتف",
+  "birthDay": "تاريخ الميلاد",
+  "updateProfile": "تحديث الملف الشخصي",
+  "updating": "جارٍ التحديث...",
+  "changePassword": "تغيير كلمة المرور",
+  "addBirthDay": "أضف تاريخ الميلاد",
+
+  "goBack": "عودة",
+  "success": "نجاح",
+  "updatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+  "message": "رسالة",
+  "searchResults": "نتائج البحث",
+  "hiText": "مرحبًا،",
+
+  "savedItem": "العناصر المحفوظة",
+"all": "الكل",
+"services": "الخدمات",
+"searchText": "بحث...",
+ "explore": "استكشاف",
+"sponsered": "ممول",
+  "searchResult": "نتيجة البحث",
+  "homeText": "الرئيسية",
+  "offerText": "العروض",
+  "loadMore": "تحميل المزيد"
+
+
+
+
+
+
+
+
+  
+
+}

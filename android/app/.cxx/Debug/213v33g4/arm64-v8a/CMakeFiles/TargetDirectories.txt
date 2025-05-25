@@ -1,0 +1,15 @@
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/CMakeFiles/appmodules.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/CMakeFiles/edit_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnasyncstorage_autolinked_build/CMakeFiles/react_codegen_rnasyncstorage.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnasyncstorage_autolinked_build/CMakeFiles/edit_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnasyncstorage_autolinked_build/CMakeFiles/rebuild_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/safeareacontext_autolinked_build/CMakeFiles/edit_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/safeareacontext_autolinked_build/CMakeFiles/rebuild_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnscreens_autolinked_build/CMakeFiles/react_codegen_rnscreens.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnscreens_autolinked_build/CMakeFiles/edit_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnscreens_autolinked_build/CMakeFiles/rebuild_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnsvg_autolinked_build/CMakeFiles/edit_cache.dir
+/home/ali-raza/Devnesa/friends_loan-manager/android/app/.cxx/Debug/213v33g4/arm64-v8a/rnsvg_autolinked_build/CMakeFiles/rebuild_cache.dir
