@@ -5,4 +5,7 @@ import AuthForm from "./AuthForm";
 import CustomFlatList from "./global/CustomFlatList";
 import CustomText from "./global/CustomText";
 import HomeHeader from "./home/HomeHeader";
-export{CustomInput,CustomButton,CustomLoader,AuthForm,CustomFlatList,CustomText,HomeHeader}
+import CustomSearchBar from "./global/CustomSearchBar";
+import HomeCard from "./home/HomeCard";
+export{CustomInput,CustomButton,CustomLoader,AuthForm,CustomFlatList,CustomText,HomeHeader,
+    CustomSearchBar,HomeCard}

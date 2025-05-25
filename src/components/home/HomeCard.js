@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { CustomSearchBar } from '../../components'
-const Home = () => {
+
+const HomeCard = () => {
   return (
     <View>
-      <CustomSearchBar/>
+      <Text>HomeCard</Text>
     </View>
   )
 }
 
-export default Home
+export default HomeCard
 
 const styles = StyleSheet.create({})

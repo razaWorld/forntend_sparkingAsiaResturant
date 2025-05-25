@@ -3,31 +3,61 @@ import React, { useState } from 'react';
 import { AuthForm } from '../../components';
 import { useNavigation } from '@react-navigation/native';
 import ScreenNames from '../../routes/routes';
+import { useRegisterUserMutation } from '../../redux/services/userApi';
+import {
+  validatePhone,
+  validateEmail,
+  validateInput,
+  validatePassword,
+} from '../../utils/Methods';
+
 const SignUp = () => {
   const navigation = useNavigation();
 
-  // State for form fields
   const [form, setForm] = useState({
+    name: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    phone: '',
   });
 
-  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
 
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: '' })); // clear individual error
   };
 
-  const handleSignUp = () => {
-    setLoading(true);
+  const handleSignUp = async () => {
+    const { name, email, phone, password } = form;
+    const validationErrors = {
+      name: validateInput(name),
+      email: validateEmail(email),
+      phone: validatePhone(phone),
+      password: validatePassword(password),
+    };
 
-    // Simulate async signup process
-    setTimeout(() => {
-      setLoading(false);
-      // Navigate to Login or Home screen after success
+    const hasErrors = Object.values(validationErrors).some((error) => error);
+
+    if (hasErrors) {
+      setErrors(validationErrors);
+
+      // Clear after 3 seconds
+      setTimeout(() => setErrors({}), 3000);
+      return;
+    }
+
+    try {
+      const response = await registerUser({ name, email, phone, password }).unwrap();
+
+      alert('Account created successfully!');
       navigation.navigate(ScreenNames.LOGIN);
-    }, 1500);
+    } catch (error) {
+      const message = error?.data?.message || 'Something went wrong!';
+      alert(`Registration Failed: ${message}`);
+    }
   };
 
   return (
@@ -36,28 +66,37 @@ const SignUp = () => {
         title="Sign Up"
         fields={[
           {
+            name: 'name',
+            value: form.name,
+            placeholder: 'Enter your full name',
+            error: errors.name,
+          },
+          {
             name: 'email',
-            value: form.email,
+            value: form.email.toLowerCase(),
             placeholder: 'Enter your email',
             keyboardType: 'email-address',
+            error: errors.email,
+          },
+          {
+            name: 'phone',
+            value: form.phone,
+            placeholder: 'Enter your phone number',
+            keyboardType: 'phone-pad',
+            error: errors.phone,
           },
           {
             name: 'password',
             value: form.password,
             placeholder: 'Enter your password',
             secureTextEntry: true,
-          },
-          {
-            name: 'confirmPassword',
-            value: form.confirmPassword,
-            placeholder: 'Confirm your password',
-            secureTextEntry: true,
+            error: errors.password,
           },
         ]}
         onChange={handleChange}
         onSubmit={handleSignUp}
         submitTitle="Create Account"
-        isLoading={loading}
+        isLoading={isLoading}
         footer={
           <Text style={styles.footerText}>
             Already have an account?{' '}

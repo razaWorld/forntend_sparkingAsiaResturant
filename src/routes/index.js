@@ -42,8 +42,8 @@ const AppStack = () => (
 
 const Routes = () => {
   
-  const isLoggedIn = useSelector(selectIsLoggedIn); 
-  // const isLoggedIn = false
+  // const isLoggedIn = useSelector(selectIsLoggedIn); 
+  const isLoggedIn = false
 
   return (
     <NavigationContainer>

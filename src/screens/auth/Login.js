@@ -7,11 +7,17 @@ import { setIsLoggedIn, setToken, setUserMeta } from '../../redux/slices/user';
 import ScreenNames from '../../routes/routes';
 import { EmailSvg, PasswordSvg } from '../../assets/svgs/svg';
 import { AppColors } from '../../utils/DesignSystem';
+import { validateInput } from '../../utils/Methods'; // ✅ Only using this
 
 const Login = ({ navigation }) => {
   const [form, setForm] = useState({
-    email: 'raza72575@gmail.com',
-    password: '123',
+    email: '',
+    password: '',
+  });
+
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
   });
 
   const [loginUser, { isLoading }] = useLoginUsersMutation();
@@ -19,29 +25,42 @@ const Login = ({ navigation }) => {
 
   const handleChange = (field, value) => {
     setForm(prev => ({ ...prev, [field]: value }));
+    setErrors(prev => ({ ...prev, [field]: '' }));
   };
 
   const handleLogin = async () => {
-    const { email, password } = form;
-
-    if (!email || !password) {
-      Alert.alert('Error', 'Email and Password are required');
+    const emailError = validateInput(form.email);
+    const passwordError = validateInput(form.password);
+  
+    setErrors({
+      email: emailError,
+      password: passwordError,
+    });
+  
+    if (emailError || passwordError) {
+      // Clear errors after 3 seconds
+      setTimeout(() => {
+        setErrors({ email: '', password: '' });
+      }, 3000);
       return;
     }
-
+  
     try {
-      const response = await loginUser({ email, password }).unwrap();
-
+      const response = await loginUser({
+        email: form.email,
+        password: form.password,
+      }).unwrap();
+  
       dispatch(setIsLoggedIn(true));
       dispatch(setUserMeta(response.user));
       dispatch(setToken(response.token));
-
+  
       navigation.navigate(ScreenNames.BOTTOMTAB);
     } catch (err) {
-      console.error('Login failed:', err);
       Alert.alert('Login Failed', err?.data?.error || 'Something went wrong');
     }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -53,14 +72,16 @@ const Login = ({ navigation }) => {
             value: form.email,
             placeholder: 'Enter your email',
             keyboardType: 'email-address',
-            leftIcon: <EmailSvg />
+            leftIcon: <EmailSvg />,
+            error: errors.email,
           },
           {
             name: 'password',
             value: form.password,
             placeholder: 'Enter your password',
             secureTextEntry: true,
-            leftIcon: <PasswordSvg />
+            leftIcon: <PasswordSvg />,
+            error: errors.password,
           },
         ]}
         onChange={handleChange}

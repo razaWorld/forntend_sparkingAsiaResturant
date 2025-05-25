@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import CustomInput from './global/CustomInput';
 import CustomButton from './global/CustomButton';
+import { AppFont } from '../utils/DesignSystem';
 
 const AuthForm = ({
   title,
@@ -27,6 +28,7 @@ const AuthForm = ({
           leftIcon={field.leftIcon}
           secureTextEntry={field.secureTextEntry}
           keyboardType={field.keyboardType || 'default'}
+          error={field.error}
         />
       ))}
 
@@ -48,12 +50,15 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     justifyContent: 'center',
+    borderWidth:1,
+    borderRadius:10
   },
   title: {
     fontSize: 22,
-    fontWeight: '600',
+    
     textAlign: 'center',
     marginBottom: 20,
+    fontFamily:AppFont.primaryFont
   },
   footer: {
     marginTop: 20,
