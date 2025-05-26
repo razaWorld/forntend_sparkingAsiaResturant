@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import ScreenNames from "../routes/routes";
 import { HomeSvg } from "../assets/svgs/svg";
 import { HomeScreen } from "../screens/app";
+import { AppFont } from "../utils/DesignSystem";
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
@@ -38,20 +39,13 @@ export default BottomTab;
 const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: "#FFFFFF",
-    height: 70,
-    paddingBottom: 10,
+  
     paddingHorizontal: 15,
-    shadowColor: "#FFFFFF",
-    shadowOffset: { width: 1, height: -4 },
-    shadowOpacity: 0.1, // Reduced opacity for subtle shadow
-    shadowRadius: 4,
-    elevation: 5,
-    borderTopWidth: 2,
-    borderTopColor: "rgba(0, 0, 0, 0.1)",
+    
   },
   tabBarLabel: {
     fontSize: 12,
-    fontWeight: "400",
-    marginTop: -7,
+    fontFamily:AppFont.primaryFont,
+    marginTop: -5,
   },
 });

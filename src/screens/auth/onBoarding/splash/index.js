@@ -1,19 +1,19 @@
 import { StyleSheet, View, Image, ActivityIndicator } from 'react-native';
 import React from 'react';
-import { mainSplashIcon } from '../../../../utils/Images';
+import {  sparkingasia_logo } from '../../../../utils/Images';
 import { AppColors } from '../../../../utils/DesignSystem';
 import { CustomText } from '../../../../components';
 const Splash = () => {
   return (
     <View style={[styles.container,{backgroundColor:AppColors.themeColor}]}>
       <View style={styles.logoContainer}>
-        <Image resizeMode="contain" source={mainSplashIcon} style={styles.icon} />
-        <CustomText size={28} color='red' textTitle='Sparking Asia'/>
-        <CustomText size={30} textTitle='Resturant'/>
+        <Image resizeMode="contain" source={sparkingasia_logo} style={styles.icon} />
+        <CustomText size={28} color={AppColors.white} textTitle='Sparking Asia'/>
+        <CustomText size={30} color={AppColors.white}textTitle='Resturant Management'/>
       
       </View>
 
-      <ActivityIndicator style={styles.loader} size="large" color="#FFFFFF" />
+      <ActivityIndicator style={styles.loader} size="large" color={AppColors.white} />
     </View>
   );
 };
@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
   icon: {
     width: 200,
     height: 100,
-    tintColor: 'white',
+   
   },
   loader: {
     position: 'absolute',
-    bottom: 30, // Adjust as needed
+    bottom: 30, 
     alignSelf: 'center',
   },
 });

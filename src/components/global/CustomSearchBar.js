@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import { AppFont, AppColors } from '../../utils/DesignSystem';
-
+import { CrossSvg } from '../../assets/svgs/svg';
+import { debounce } from '../../utils/Methods';
 const CustomSearchBar = ({ 
   placeholder = 'Search...', 
-  leftIcon: LeftIcon,  // React component for left icon
-  rightIcon: RightIcon, // React component for right icon
+  leftIcon: LeftIcon,  
   onChangeText,
   value: propValue = '',
   style,
+  debounceTime = 300,
 }) => {
   const [value, setValue] = useState(propValue);
 
+  useEffect(() => {
+    setValue(propValue);
+  }, [propValue]);
+
+  // Wrap onChangeText with debounce, and memoize it
+  const debouncedOnChangeText = useCallback(
+    debounce((text) => {
+      onChangeText?.(text);
+    }, debounceTime),
+    [onChangeText, debounceTime]
+  );
+
   const handleChange = (text) => {
     setValue(text);
-    if (onChangeText) onChangeText(text);
+    debouncedOnChangeText(text);
+  };
+
+  const handleClear = () => {
+    setValue('');
+    onChangeText?.(''); // clear immediately
   };
 
   return (
@@ -29,10 +47,13 @@ const CustomSearchBar = ({
         onChangeText={handleChange}
         returnKeyType="search"
         autoCapitalize="none"
-        clearButtonMode="while-editing"
       />
 
-      {RightIcon && <View style={styles.iconRight}><RightIcon /></View>}
+      {value.length > 0 && (
+        <TouchableOpacity onPress={handleClear} style={styles.iconRight}>
+          <CrossSvg />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -44,12 +65,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: AppColors.grayLightest,
-    borderRadius: 12,
+    borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 8,
     marginVertical: 10,
-    borderWidth:1
-    
+    borderWidth: 1,
+    borderColor: AppColors.borderColor
   },
   iconLeft: {
     marginRight: 10,
@@ -62,6 +83,6 @@ const styles = StyleSheet.create({
     fontFamily: AppFont.regular,
     fontSize: 16,
     color: AppColors.textDark,
-    paddingVertical: 0, // Fix vertical padding for Android
+    paddingVertical: 0,
   },
 });

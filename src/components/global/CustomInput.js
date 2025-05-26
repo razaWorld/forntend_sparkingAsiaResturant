@@ -30,8 +30,13 @@ const CustomInput = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const isActive = isFocused || value?.length > 0;
-  const borderColor = showError && error ? AppColors.red : isActive ? AppColors.orange : AppColors.gray;
+  // Border color logic
+  const borderColor =
+    showError && error
+      ? AppColors.red
+      : isFocused
+      ? AppColors.blue
+      : AppColors.secondaryText;
 
   return (
     <View style={[styles.container, style]}>
@@ -47,6 +52,7 @@ const CustomInput = ({
         <TextInput
           style={[styles.input, { flex: 1 }, inputStyle]}
           placeholder={placeholder}
+          placeholderTextColor={AppColors.gray}
           value={value}
           onChangeText={onChangeText}
           secureTextEntry={secureTextEntry}
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderRadius: 8,
     backgroundColor: AppColors.white,
     paddingHorizontal: 10,

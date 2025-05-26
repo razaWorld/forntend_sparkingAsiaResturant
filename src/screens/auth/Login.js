@@ -6,7 +6,7 @@ import { useLoginUsersMutation } from '../../redux/services/userApi';
 import { setIsLoggedIn, setToken, setUserMeta } from '../../redux/slices/user';
 import ScreenNames from '../../routes/routes';
 import { EmailSvg, PasswordSvg } from '../../assets/svgs/svg';
-import { AppColors } from '../../utils/DesignSystem';
+import { AppColors ,AppFont} from '../../utils/DesignSystem';
 import { validateInput } from '../../utils/Methods'; // ✅ Only using this
 
 const Login = ({ navigation }) => {
@@ -66,10 +66,11 @@ const Login = ({ navigation }) => {
     <View style={styles.container}>
       <AuthForm
         title="Login"
+        subText={'Enter your credentials to experience our services'}
         fields={[
           {
             name: 'email',
-            value: form.email,
+            value: form.email.toLowerCase(),
             placeholder: 'Enter your email',
             keyboardType: 'email-address',
             leftIcon: <EmailSvg />,
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   link: {
-    color: AppColors.reds,
-    fontWeight: '600',
+    color: AppColors.blue,
+    fontFamily:AppFont.primaryFont
   },
 });

@@ -1,15 +1,17 @@
 import React from 'react';
 import { FlatList, Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 import CustomLoader from './CustomLoader';
+
 const CustomFlatList = ({
   data,
   renderItem,
   keyExtractor,
   horizontal = false,
   showsHorizontalScrollIndicator = false,
-  showsVerticalScrollIndicator=false,
+  showsVerticalScrollIndicator = false,
   contentContainerStyle = {},
   ListEmptyComponent = () => <Text style={styles.emptyText}>No data found</Text>,
+  ListFooterComponent = null,
   loading = false,
   ItemSeparatorComponent = null,
   onEndReached = null,
@@ -35,6 +37,7 @@ const CustomFlatList = ({
       showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
       contentContainerStyle={contentContainerStyle}
       ListEmptyComponent={ListEmptyComponent}
+      ListFooterComponent={ListFooterComponent}
       ItemSeparatorComponent={ItemSeparatorComponent}
       onEndReached={onEndReached}
       onRefresh={onRefresh}
@@ -54,6 +57,9 @@ const styles = StyleSheet.create({
     color: '#999',
     fontSize: 16,
     paddingVertical: 20,
+  },
+  footerLoader: {
+    marginVertical: 16,
   },
 });
 

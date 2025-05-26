@@ -10,6 +10,8 @@ import {
   validateInput,
   validatePassword,
 } from '../../utils/Methods';
+import ProfileSvg, { EmailSvg, PasswordSvg, PhoneSvg } from '../../assets/svgs/svg';
+import { AppColors, AppFont } from '../../utils/DesignSystem';
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -64,12 +66,14 @@ const SignUp = () => {
     <View style={styles.container}>
       <AuthForm
         title="Sign Up"
+        subText={'Create an account to experience our services '}
         fields={[
           {
             name: 'name',
             value: form.name,
             placeholder: 'Enter your full name',
             error: errors.name,
+            leftIcon:<ProfileSvg/>
           },
           {
             name: 'email',
@@ -77,6 +81,7 @@ const SignUp = () => {
             placeholder: 'Enter your email',
             keyboardType: 'email-address',
             error: errors.email,
+            leftIcon:<EmailSvg/>
           },
           {
             name: 'phone',
@@ -84,6 +89,7 @@ const SignUp = () => {
             placeholder: 'Enter your phone number',
             keyboardType: 'phone-pad',
             error: errors.phone,
+            leftIcon:<PhoneSvg/>
           },
           {
             name: 'password',
@@ -91,6 +97,8 @@ const SignUp = () => {
             placeholder: 'Enter your password',
             secureTextEntry: true,
             error: errors.password,
+            leftIcon:<PasswordSvg/>
+            
           },
         ]}
         onChange={handleChange}
@@ -128,7 +136,7 @@ const styles = StyleSheet.create({
     color: '#444',
   },
   link: {
-    color: '#007bff',
-    fontWeight: '600',
+    color: AppColors.blue,
+    fontFamily:AppFont.primaryFont
   },
 });

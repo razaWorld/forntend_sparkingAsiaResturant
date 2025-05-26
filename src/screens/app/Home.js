@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState, useCallback } from 'react';
+import { StyleSheet, View, Text, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useGetResturantMutation } from '../../redux/services/resturantApi';
-import CustomSearchBar from '../../components/global/CustomSearchBar'; // adjust path if needed
+import { HomeCard, CustomSearchBar, CustomFlatList,HomeHeader } from '../../components';
+import { AppColors } from '../../utils/DesignSystem';
+import { SearchSvg } from '../../assets/svgs/svg';
+import ScreenNames from '../../routes/routes';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const token = useSelector((state) => state.user.token);
   const [getRestaurant, { isLoading }] = useGetResturantMutation();
 
@@ -14,11 +17,14 @@ const Home = () => {
   const [limit] = useState(10);
   const [hasMore, setHasMore] = useState(true);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+  const [error, setError] = useState(null);
 
   // 🔄 Fetch restaurants
   const fetchRestaurants = useCallback(
     async (reset = false) => {
       try {
+        setError(null); // Clear previous error
+
         const response = await getRestaurant({
           userToken: token,
           search,
@@ -35,63 +41,83 @@ const Home = () => {
           reset ? newRestaurants : [...prev, ...newRestaurants]
         );
 
-        // 🔍 Check if there's more data
         setHasMore(newRestaurants.length === limit);
-        setIsFetchingMore(false);
       } catch (err) {
         console.error('Fetch error:', err);
+        setError('Failed to load restaurants. Please try again.');
+      } finally {
         setIsFetchingMore(false);
       }
     },
     [getRestaurant, token, search, page, limit]
   );
 
-  // 📦 On initial load or search change
   useEffect(() => {
     setPage(1);
     fetchRestaurants(true);
   }, [search]);
 
-  // ⬇️ Load more when reaching end of list
-  const handleLoadMore = () => {
-    if (hasMore && !isFetchingMore) {
-      setIsFetchingMore(true);
-      setPage(prev => prev + 1);
-    }
-  };
-
-  // 📦 Fetch more when page increases
   useEffect(() => {
     if (page > 1) {
       fetchRestaurants();
     }
   }, [page]);
 
+  const handleLoadMore = () => {
+    if (hasMore && !isFetchingMore && !isLoading) {
+      setIsFetchingMore(true);
+      setPage(prev => prev + 1);
+    }
+  };
+
+  const handleRetry = () => {
+    setError(null);
+    fetchRestaurants(page === 1); // retry current page
+  };
+
   return (
     <View style={styles.container}>
+      <HomeHeader/>
       <CustomSearchBar
-        placeholder="Search Restaurants..."
-        onChangeText={(text) => setSearch(text)}
+        placeholder="Search name,cousine"
+        onChangeText={setSearch}
         value={search}
+        leftIcon={SearchSvg}
       />
+      <TouchableOpacity onPress={()=>navigation.navigate(ScreenNames.FILTER)} style={{marginBottom:10,}}>
+        <Text>Filter Data</Text>
+      </TouchableOpacity>
 
-      {isLoading && page === 1 ? (
-        <ActivityIndicator size="large" color="#000" />
+      {error ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+          <TouchableOpacity onPress={handleRetry} style={styles.retryButton}>
+            <Text style={styles.retryButtonText}>Retry</Text>
+          </TouchableOpacity>
+        </View>
       ) : (
-        <FlatList
+        <CustomFlatList
           data={restaurants}
-          keyExtractor={(item, index) => item._id?.toString() || index.toString()}
           renderItem={({ item }) => (
-            <View style={styles.item}>
-              <Text style={styles.name}>{item.name}</Text>
-              <Text style={styles.detail}>{item.cuisine}</Text>
-              <Text style={styles.detail}>{item.location}</Text>
-            </View>
+            <HomeCard
+              name={item.name}
+              cuisine={item.cuisine}
+              location={item.location}
+              rating={item.rating}
+            />
           )}
+          keyExtractor={(item) => item._id}
+          loading={isLoading && page === 1}
           onEndReached={handleLoadMore}
-          onEndReachedThreshold={0.3}
-          ListFooterComponent={() =>
-            isFetchingMore && <ActivityIndicator size="small" color="#000" />
+          refreshing={false}
+          contentContainerStyle={{ paddingBottom: 30 }}
+          ListEmptyComponent={<Text style={styles.noResults}>No restaurants found.</Text>}
+          ListFooterComponent={
+            isFetchingMore ? (
+              <View style={styles.footerLoader}>
+                <ActivityIndicator size="small" color={AppColors.blue} />
+              </View>
+            ) : null
           }
         />
       )}
@@ -101,32 +127,41 @@ const Home = () => {
 
 export default Home;
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: AppColors.white,
   },
-  title: {
-    fontWeight: 'bold',
-  },
-  token: {
-    marginBottom: 16,
-    color: 'gray',
-  },
-  item: {
-    padding: 12,
-    backgroundColor: '#f2f2f2',
-    marginVertical: 6,
-    borderRadius: 6,
-  },
-  name: {
+  noResults: {
+    textAlign: 'center',
+    color: AppColors.black,
     fontSize: 16,
+    paddingVertical: 20,
+  },
+  errorContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 50,
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 16,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  retryButton: {
+    backgroundColor: '#ff6600',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  retryButtonText: {
+    color: '#fff',
     fontWeight: 'bold',
   },
-  detail: {
-    fontSize: 14,
-    color: '#555',
+  footerLoader: {
+    paddingVertical: 16,
+    alignItems: 'center',
   },
 });

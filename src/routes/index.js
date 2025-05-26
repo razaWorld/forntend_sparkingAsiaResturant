@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen } from '../screens/app';
+import { FilterScreen, HomeScreen } from '../screens/app';
 import { LoginScreen, SignUpScreen } from '../screens/auth';
 import { BottomTab } from '../navigation'; // BottomTab should be included in the app flow after login
 import ScreenNames from './routes';
@@ -24,6 +24,10 @@ const AuthStack = () => (
       name={ScreenNames.BOTTOMTAB}
       component={BottomTab}
     />
+    <Stack.Screen
+      name={ScreenNames.FILTER}
+      component={FilterScreen}
+    />
   </Stack.Navigator>
 );
 
@@ -32,6 +36,10 @@ const AppStack = () => (
     <Stack.Screen
       name={ScreenNames.HOME}
       component={HomeScreen}
+    />
+    <Stack.Screen
+      name={ScreenNames.FILTER}
+      component={FilterScreen}
     />
     <Stack.Screen
       name={ScreenNames.BOTTOMTAB}

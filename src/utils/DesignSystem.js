@@ -16,6 +16,7 @@ export const AppColors = {
   lightBlack:'#00000036',
   secondaryWhite:'#F4F4F4',
   lightGray:'#9D9D9D',
+  orange:'#ff6600',
 
   reds:'#EC11460',
 
