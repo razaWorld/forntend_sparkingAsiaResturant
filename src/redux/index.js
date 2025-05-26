@@ -2,7 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { userSliceReducer } from './slices';
-import { userApi } from './services';
+import { userApi,resturantApi } from './services';
 
 const persistConfig = {
   key: 'root',
@@ -13,6 +13,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userSliceReducer,
   [userApi.reducerPath]: userApi.reducer, // ✅ RTK Query reducer
+  [resturantApi.reducerPath]: resturantApi.reducer, // ✅ RTK Query reducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -22,7 +23,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false, // ✅ Prevent AsyncStorage serialization warnings
-    }).concat(userApi.middleware),
+    }).concat(userApi.middleware,resturantApi.middleware),
   devTools: process.env.NODE_ENV !== 'production', // Optional: enable Redux DevTools
 });
 

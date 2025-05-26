@@ -1,26 +1,26 @@
 {
-  "root": "/home/ali-raza/Devnesa/friends_loan-manager",
-  "reactNativePath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native",
+  "root": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant",
+  "reactNativePath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native",
   "reactNativeVersion": "0.78",
   "dependencies": {
     "@react-native-async-storage/async-storage": {
-      "root": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/@react-native-async-storage/async-storage",
+      "root": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/@react-native-async-storage/async-storage",
       "name": "@react-native-async-storage/async-storage",
       "platforms": {
         "ios": {
-          "podspecPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/@react-native-async-storage/async-storage/RNCAsyncStorage.podspec",
+          "podspecPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/@react-native-async-storage/async-storage/RNCAsyncStorage.podspec",
           "version": "1.24.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/@react-native-async-storage/async-storage/android",
+          "sourceDir": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/@react-native-async-storage/async-storage/android",
           "packageImportPath": "import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;",
           "packageInstance": "new AsyncStoragePackage()",
           "buildTypes": [],
           "libraryName": "rnasyncstorage",
           "componentDescriptors": [],
-          "cmakeListsPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -29,17 +29,17 @@
       }
     },
     "react-native-safe-area-context": {
-      "root": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-safe-area-context",
+      "root": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-safe-area-context",
       "name": "react-native-safe-area-context",
       "platforms": {
         "ios": {
-          "podspecPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
-          "version": "5.3.0",
+          "podspecPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
+          "version": "5.4.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-safe-area-context/android",
+          "sourceDir": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-safe-area-context/android",
           "packageImportPath": "import com.th3rdwave.safeareacontext.SafeAreaContextPackage;",
           "packageInstance": "new SafeAreaContextPackage()",
           "buildTypes": [],
@@ -48,7 +48,7 @@
             "RNCSafeAreaProviderComponentDescriptor",
             "RNCSafeAreaViewComponentDescriptor"
           ],
-          "cmakeListsPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -57,17 +57,17 @@
       }
     },
     "react-native-screens": {
-      "root": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-screens",
+      "root": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-screens",
       "name": "react-native-screens",
       "platforms": {
         "ios": {
-          "podspecPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-screens/RNScreens.podspec",
-          "version": "4.9.2",
+          "podspecPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-screens/RNScreens.podspec",
+          "version": "4.10.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-screens/android",
+          "sourceDir": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-screens/android",
           "packageImportPath": "import com.swmansion.rnscreens.RNScreensPackage;",
           "packageInstance": "new RNScreensPackage()",
           "buildTypes": [],
@@ -85,7 +85,7 @@
             "RNSScreenContentWrapperComponentDescriptor",
             "RNSModalScreenComponentDescriptor"
           ],
-          "cmakeListsPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -94,17 +94,17 @@
       }
     },
     "react-native-svg": {
-      "root": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-svg",
+      "root": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-svg",
       "name": "react-native-svg",
       "platforms": {
         "ios": {
-          "podspecPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-svg/RNSVG.podspec",
-          "version": "15.11.2",
+          "podspecPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-svg/RNSVG.podspec",
+          "version": "15.12.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-svg/android",
+          "sourceDir": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-svg/android",
           "packageImportPath": "import com.horcrux.svg.SvgPackage;",
           "packageInstance": "new SvgPackage()",
           "buildTypes": [],
@@ -140,7 +140,7 @@
             "RNSVGTSpanComponentDescriptor",
             "RNSVGUseComponentDescriptor"
           ],
-          "cmakeListsPath": "/home/ali-raza/Devnesa/friends_loan-manager/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -311,7 +311,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "/home/ali-raza/Devnesa/friends_loan-manager"
+          "default": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant"
         },
         {
           "name": "--platform <string>",
@@ -605,7 +605,7 @@
   ],
   "project": {
     "ios": {
-      "sourceDir": "/home/ali-raza/Devnesa/friends_loan-manager/ios",
+      "sourceDir": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/ios",
       "xcodeProject": {
         "name": "friends_loan_manager.xcodeproj",
         "path": ".",
@@ -615,7 +615,7 @@
       "assets": []
     },
     "android": {
-      "sourceDir": "/home/ali-raza/Devnesa/friends_loan-manager/android",
+      "sourceDir": "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/android",
       "appName": "app",
       "packageName": "com.friends_loan_manager",
       "applicationId": "com.friends_loan_manager",

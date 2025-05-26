@@ -1,4 +1,4 @@
 import { userApi } from "./userApi";
+import { resturantApi } from "./resturantApi";
 
-
-export{userApi}
+export{userApi,resturantApi}

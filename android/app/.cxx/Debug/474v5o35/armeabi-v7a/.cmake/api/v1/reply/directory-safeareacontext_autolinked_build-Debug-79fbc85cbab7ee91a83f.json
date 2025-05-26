@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "safeareacontext_autolinked_build",
+		"source" : "/home/ali-raza/SparkingAsia/sparkingAsia_Restaurant/forntend_sparkingAsiaResturant/node_modules/react-native-safe-area-context/android/src/main/jni"
+	}
+}

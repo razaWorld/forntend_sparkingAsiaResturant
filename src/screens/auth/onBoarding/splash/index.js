@@ -1,13 +1,16 @@
-import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Image, ActivityIndicator } from 'react-native';
 import React from 'react';
 import { mainSplashIcon } from '../../../../utils/Images';
 import { AppColors } from '../../../../utils/DesignSystem';
+import { CustomText } from '../../../../components';
 const Splash = () => {
   return (
     <View style={[styles.container,{backgroundColor:AppColors.themeColor}]}>
       <View style={styles.logoContainer}>
         <Image resizeMode="contain" source={mainSplashIcon} style={styles.icon} />
-        <Text style={{color:'#FFFFFF', marginTop:10,fontSize:28}}>Friends Loan Manager</Text>
+        <CustomText size={28} color='red' textTitle='Sparking Asia'/>
+        <CustomText size={30} textTitle='Resturant'/>
+      
       </View>
 
       <ActivityIndicator style={styles.loader} size="large" color="#FFFFFF" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, Text, View, ActivityIndicator, StyleSheet } from 'react-native';
-
+import CustomLoader from './CustomLoader';
 const CustomFlatList = ({
   data,
   renderItem,
@@ -20,6 +20,7 @@ const CustomFlatList = ({
     return (
       <View style={styles.loaderContainer}>
         <ActivityIndicator size="large" color="#ff6600" />
+        <CustomLoader />
       </View>
     );
   }
