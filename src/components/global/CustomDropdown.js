@@ -8,6 +8,8 @@ import {
   Modal,
   TextInput,
 } from 'react-native';
+import CustomSearchBar from './CustomSearchBar';
+import { SearchSvg } from '../../assets/svgs/svg';
 
 const CustomDropdown = ({
   label,
@@ -52,17 +54,20 @@ const CustomDropdown = ({
           onPressOut={() => setVisible(false)}
         >
           <View style={styles.modalContent}>
-            <TextInput
-              placeholder={`Search ${label.toLowerCase()}...`}
-              value={searchTerm}
-              onChangeText={setSearchTerm}
-              style={styles.searchInput}
+            
+            <CustomSearchBar
+            leftIcon={SearchSvg}
+            placeholder={`Search ${label.toLowerCase()}...`}
+            value={searchTerm}
+            onChangeText={setSearchTerm}
             />
 
             <FlatList
               data={filteredData}
               keyExtractor={(item, idx) => item + idx}
               onEndReached={onEndReached}
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
               onEndReachedThreshold={onEndReachedThreshold}
               keyboardShouldPersistTaps="handled"
               renderItem={({ item }) => (
@@ -112,6 +117,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 8,
     maxHeight: '70%',
+    paddingHorizontal:10
   },
   searchInput: {
     borderBottomWidth: 1,

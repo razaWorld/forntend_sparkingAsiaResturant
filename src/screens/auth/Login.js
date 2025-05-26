@@ -11,8 +11,8 @@ import { validateInput } from '../../utils/Methods'; // ✅ Only using this
 
 const Login = ({ navigation }) => {
   const [form, setForm] = useState({
-    email: 'razaworld72575@gmail.com',
-    password: '12345678',
+    email: '',
+    password: '',
   });
 
   const [errors, setErrors] = useState({

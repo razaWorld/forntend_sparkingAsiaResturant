@@ -1,10 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image,Alert } from 'react-native';
 import React from 'react';
 import { AppColors, AppFont } from '../../utils/DesignSystem';
 import { LogoutBtnSvg } from '../../assets/svgs/svg';
 import { sparkingasia_logo } from '../../utils/Images';
 
 const HomeHeader = ({ onLogout, username = "Ali Raza" }) => {
+ 
   return (
     <View style={styles.headerContainer}>
       {/* Left: Logo + Welcome Text */}

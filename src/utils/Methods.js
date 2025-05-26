@@ -23,20 +23,19 @@ export const validatePassword = (password) => {
 
   return '';
 };
-
 export const validatePhone = (phone) => {
-  const phoneRegex = /^[569]\d{7}$/; // Accepts 8 digits starting with 5, 6, or 9
+  const phoneRegex = /^03\d{9}$/; // Accepts 11 digits starting with '03' (common in Pakistan)
 
   if (!phone) {
     return 'Phone number is required';
   }
 
-  if (phone.length !== 8) {
-    return 'Phone number should be 8 digits';
+  if (phone.length !== 11) {
+    return 'Phone number must be exactly 11 digits';
   }
 
   if (!phoneRegex.test(phone)) {
-    return 'Phone number must start with 5, 6, or 9 and be valid';
+    return 'Phone number must start with 03 and be valid';
   }
 
   return '';

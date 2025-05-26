@@ -45,13 +45,16 @@ const AppStack = () => (
       name={ScreenNames.BOTTOMTAB}
       component={BottomTab}
     />
+    <Stack.Screen
+      name={ScreenNames.LOGIN}
+      component={LoginScreen}
+    />
   </Stack.Navigator>
 );
 
 const Routes = () => {
   
-  // const isLoggedIn = useSelector(selectIsLoggedIn); 
-  const isLoggedIn = false
+  const isLoggedIn = useSelector(selectIsLoggedIn); 
 
   return (
     <NavigationContainer>

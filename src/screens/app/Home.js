@@ -1,16 +1,36 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, ActivityIndicator,Alert, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useGetResturantMutation } from '../../redux/services/resturantApi';
 import { HomeCard, CustomSearchBar, CustomFlatList,HomeHeader } from '../../components';
 import { AppColors } from '../../utils/DesignSystem';
 import { SearchSvg } from '../../assets/svgs/svg';
 import ScreenNames from '../../routes/routes';
-
+import { setIsLoggedIn,setUserMeta,setToken } from '../../redux/slices/user';
+import { useDispatch } from 'react-redux';
 const Home = ({navigation}) => {
   const token = useSelector((state) => state.user.token);
   const [getRestaurant, { isLoading }] = useGetResturantMutation();
-
+  const dispatch=useDispatch()
+  const onLogout = () => {
+    Alert.alert(
+      "Logout",
+      "Are you sure you want to logout?",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Yes",
+          onPress: () => {
+            dispatch(setIsLoggedIn(false));
+            dispatch(setUserMeta(null));
+            dispatch(setToken(null));           // clear redux auth state
+            navigation.navigate(ScreenNames.LOGIN); // go to login screen
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
   const [restaurants, setRestaurants] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
@@ -43,7 +63,6 @@ const Home = ({navigation}) => {
 
         setHasMore(newRestaurants.length === limit);
       } catch (err) {
-        console.error('Fetch error:', err);
         setError('Failed to load restaurants. Please try again.');
       } finally {
         setIsFetchingMore(false);
@@ -77,7 +96,7 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <HomeHeader/>
+      <HomeHeader onLogout={onLogout}/>
       <CustomSearchBar
         placeholder="Search name,cousine"
         onChangeText={setSearch}
