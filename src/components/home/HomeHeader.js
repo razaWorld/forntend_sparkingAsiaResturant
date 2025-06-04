@@ -3,9 +3,10 @@ import React from 'react';
 import { AppColors, AppFont } from '../../utils/DesignSystem';
 import { LogoutBtnSvg } from '../../assets/svgs/svg';
 import { sparkingasia_logo } from '../../utils/Images';
+import { useSelector } from 'react-redux';
 
 const HomeHeader = ({ onLogout, username = "Ali Raza" }) => {
- 
+ const name =useSelector((state)=>state.user.userMeta.name)
   return (
     <View style={styles.headerContainer}>
       {/* Left: Logo + Welcome Text */}
@@ -13,7 +14,7 @@ const HomeHeader = ({ onLogout, username = "Ali Raza" }) => {
         <Image source={sparkingasia_logo} style={styles.logo} resizeMode="contain" />
         <View>
           <Text style={styles.welcomeText}>Welcome</Text>
-          <Text style={styles.usernameText}>{username}</Text>
+          <Text style={styles.usernameText}>{name}</Text>
         </View>
       </View>
 

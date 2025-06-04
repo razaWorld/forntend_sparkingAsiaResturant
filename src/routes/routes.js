@@ -4,7 +4,7 @@ const ScreenNames={
     SIGNUP:'SignUp',
     LOGIN:'Login',
     FILTER:'Filter',
-    "BOTTOMTAB":'BottomTab'
+    BOTTOMTAB:'BottomTab'
 
 }
 export default ScreenNames

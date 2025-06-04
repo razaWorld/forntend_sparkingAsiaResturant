@@ -1,2 +1,2 @@
-import BottomTab from "./BottomTab";
-export {BottomTab}
+
+export {default as BottomTabNavigation } from './BottomTab'

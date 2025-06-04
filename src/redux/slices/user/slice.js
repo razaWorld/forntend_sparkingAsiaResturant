@@ -23,6 +23,12 @@ const userSlice = createSlice({
     setPassword: (state, action) => {
       state.password = action.payload;
     },
+    logout: (state) => {
+      state.token = null;
+      state.isLoggedIn = false;
+      state.userMeta = null;
+      state.password = null;
+    },
    
   },
 });

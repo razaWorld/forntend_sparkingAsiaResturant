@@ -1,71 +1,110 @@
-npm install @reduxjs/toolkit react-redux
-npm install react-redux@^9.1.2 redux-persist@^6.0.0
-npm install @react-navigation/bottom-tabs@^6.6.1
-npm install @react-navigation/material-bottom-tabs@^6.2.29
-npm install @react-navigation/native@^6.1.18
-npm install @react-navigation/native-stack@^6.11.0
-npm install @react-navigation/stack@^6.4.1
+
+
+### ✅ Core Redux & Navigation Libraries:
+
+```bash
+npm install @reduxjs/toolkit react-redux redux-persist
+npm install @react-navigation/native @react-navigation/native-stack @react-navigation/stack
+npm install @react-navigation/bottom-tabs @react-navigation/material-bottom-tabs
 npm install react-native-screens react-native-safe-area-context
-npm install react-native-image-crop-picker@^0.41.2
-npm install react-native-modal@^13.0.1
-npm install @react-native-async-storage/async-storage@^1.24.0
+```
+
+---
+
+### ✅ Async Storage & i18n:
+
+```bash
+npm install @react-native-async-storage/async-storage
 npm install i18next react-i18next
-npm install react-native-keyboard-aware-scroll-view
+```
+
+---
+
+### ✅ UI Libraries:
+
+```bash
+npm install react-native-modal react-native-keyboard-aware-scroll-view
 npm install react-native-linear-gradient
-npm install @vitalets/google-translate-api
-npm install react-native-svgc
+npm install react-native-svg react-native-svg-transformer
 npm install react-native-svg-circle
-npm i expo-font
+```
 
-npx react-native-asset
+---
 
+### ✅ Image & Picker Tools:
+
+```bash
+npm install react-native-image-crop-picker
 npm install react-native-image-picker
-npm install react-native-modal @react-native-community/datetimepicker
-npm install react-native-maps
-npm install react-native-maps-directions
-npm i react-native-masonry-list
-npm install react-native-masonry-list
-npm install @react-native-community/image-gallery
+npm install @react-native-community/datetimepicker
+```
+
+---
+
+### ✅ Google/Firebase & Location Services:
+
+```bash
+npm install @react-native-google-signin/google-signin
+npm install react-native-geocoding
 npm install react-native-get-location
 npm install @react-native-community/geolocation
-npm install @react-native-google-signin/google-signin
-
-
-    npm i react-native-reanimated-carousel
-    npm install react-native-reanimated
-
-npm i react-native-masonry-list
-
-
-npm install --save-dev jest @testing-library/react-native @testing-library/jest-native react-test-renderer
-
-
-
-npm i @react-native-community/geolocation
-npm install react-native-maps react-native-geolocation-service
+npm install react-native-geolocation-service
 npm install react-native-google-places-autocomplete
+npm install @react-native-firebase/app @react-native-firebase/database @react-native-firebase/firestore
+```
 
-npm install react-native-geocoding
-npm install @react-native-firebase/app @react-native-firebase/database
+---
 
-npm install @react-native-firebase/app @react-native-firebase/firestore
+### ✅ Maps:
 
+```bash
+npm install react-native-maps react-native-maps-directions
+```
 
-npm install react-native-svg
-npm install react-native-svg-transformer
+---
 
+### ✅ Masonry & Gallery:
+
+```bash
+npm install react-native-masonry-list
+npm install @react-native-community/image-gallery
+```
+
+---
+
+### ✅ Carousel & Animation:
+
+```bash
+npm install react-native-reanimated-carousel react-native-reanimated
+```
+
+---
+
+### ✅ Fonts & Assets:
+
+```bash
+npm i expo-font
+npx react-native-asset
+```
+
+---
+
+### ✅ Utilities:
+
+```bash
 npm install lodash.debounce
+```
+
+---
+
+### ✅ Testing:
+
+```bash
+npm install --save-dev jest @testing-library/react-native @testing-library/jest-native react-test-renderer
+```
+
+---
+npm install --save-dev typescript @types/react @types/react-native
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Let me know if you want a script to install all of these in one go.

@@ -6,7 +6,7 @@ import { HomeCard, CustomSearchBar, CustomFlatList,HomeHeader } from '../../comp
 import { AppColors } from '../../utils/DesignSystem';
 import { SearchSvg } from '../../assets/svgs/svg';
 import ScreenNames from '../../routes/routes';
-import { setIsLoggedIn,setUserMeta,setToken } from '../../redux/slices/user';
+import {logout } from '../../redux/slices/user';
 import { useDispatch } from 'react-redux';
 const Home = ({navigation}) => {
   const token = useSelector((state) => state.user.token);
@@ -21,10 +21,9 @@ const Home = ({navigation}) => {
         {
           text: "Yes",
           onPress: () => {
-            dispatch(setIsLoggedIn(false));
-            dispatch(setUserMeta(null));
-            dispatch(setToken(null));           // clear redux auth state
-            navigation.navigate(ScreenNames.LOGIN); // go to login screen
+        
+            dispatch(logout())          // clear redux auth state
+            navigation.replace(ScreenNames.LOGIN); // go to login screen
           },
         },
       ],
@@ -103,9 +102,7 @@ const Home = ({navigation}) => {
         value={search}
         leftIcon={SearchSvg}
       />
-      <TouchableOpacity onPress={()=>navigation.navigate(ScreenNames.FILTER)} style={{marginBottom:10,}}>
-        <Text>Filter Data</Text>
-      </TouchableOpacity>
+     
 
       {error ? (
         <View style={styles.errorContainer}>
